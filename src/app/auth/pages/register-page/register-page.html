@@ -1,0 +1,50 @@
+<div class="card flex justify-center mt-3">
+       <p-toast />
+    <form 
+        class="flex flex-col gap-4 w-full"
+        [formGroup]="registerForm"
+        (ngSubmit)="onSubmit()">
+        <div class="flex flex-col gap-1">
+            <input pInputText 
+                    type="text" 
+                    id="email" 
+                    placeholder="Email" 
+                    name="email" 
+                    formControlName="email"
+                    required />
+                <p-message severity="error" size="small" variant="simple">Email is required.</p-message>
+        </div>
+        <div class="flex flex-col gap-1">
+            <input pInputText 
+                type="text" 
+                id="fullName" 
+                name="fullName" 
+                placeholder="Full name" 
+                formControlName="fullName"
+                required  />
+                <p-message severity="error" size="small" variant="simple">
+                        THe ful name is required.
+                </p-message>
+        </div>
+        <div class="flex flex-col gap-1">
+            <input pInputText 
+                type="password" 
+                id="password" 
+                name="password" 
+                placeholder="Password" 
+                formControlName="password"
+                required 
+                password  />
+                <p-message severity="error" size="small" variant="simple">
+                        Please enter a valid password.
+                </p-message>
+        </div>
+        <button pButton class="btn btn-secondary" severity="secondary" type="submit">
+            <span pButtonLabel>Login</span>
+        </button>
+
+    </form>
+    <p class="text-slate-700">No tines ceuenta? 
+        <a class="text-secondary" routerLink="/auth/register">Registrate aquí</a>
+    </p>
+</div>

@@ -1,0 +1,12 @@
+@if (productResource.isLoading()) {   
+    <div class="flex justify-center items-center h-screen">
+        <span class="loading loadin-spinner loading-lg"></span>
+    </div>
+}
+
+
+@if (productResource.hasValue()) {
+    <product-details
+     [product]="productResource.value()"></product-details>
+    <h1>{{ productResource.value().title}}</h1>
+}

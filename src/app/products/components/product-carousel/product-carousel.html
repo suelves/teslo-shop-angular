@@ -1,0 +1,34 @@
+<div class="card">
+  <p-carousel
+    [value]="products()[0].images"
+    [numVisible]="1"
+    [numScroll]="products()[0].images.length"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+  >
+    <ng-template let-product #item>
+      <div class="m-2 p-4">
+        <div class="mb-4">
+          <div class="relative mx-auto">
+            @if (product.includes('blob:')) {
+              <img
+                src="{{ product | productImage }} "
+                [alt]="product.name"
+                class="w-full rounded-border"
+              />
+            } @else {
+              <img
+                src="{{ baseUrl }}/{{ product | productImage }}"
+                [alt]="product.name"
+                class="w-full rounded-border"
+              />
+            }
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+  @if (products()[0].images.length === 0) {
+    <img [src]="null | productImage" />
+  }
+</div>

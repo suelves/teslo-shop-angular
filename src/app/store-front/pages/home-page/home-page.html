@@ -1,0 +1,17 @@
+    <h1 class="text-3xl font-bold-font-custom">Todos los productos</h1>
+    <h2 class="text-2xl mb-5">Para todos los gustos</h2>
+
+
+    @if (productsResource.hasValue()) {
+
+        <div #gridTemplate class="grid grid-cols-1 md:grid-cols-2 lg:grid-col-3 xl:grid-cols-4 mt-2 gap-3 p-fade-enter-from">
+            @for (product of productsResource.value().products; track product.id) {
+                <product-card
+                [product]="product">
+                </product-card>
+            }
+            @empty {
+                <p>No hay productos</p>
+            }
+        </div>
+    }

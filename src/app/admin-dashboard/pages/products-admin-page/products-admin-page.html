@@ -1,0 +1,20 @@
+<h1 class="text-2xl font-bold">Listado de productos</h1>
+<h2 class="txt-lg">Total de productos<span class="text-accent">
+    {{ productsResource.value()?.count }}
+</span></h2>
+
+
+<div class="divider"></div>
+
+<div class="flex gap-2 items-center h-20">
+    <div class="flex- flex-1">
+        <button pButton 
+            class="btn btn-rpimary"    
+            routerLink="/admin/products/new">
+            Nuevo producto
+        </button>
+    </div>
+</div>
+@if (productsResource.hasValue()) {
+    <product-table [products]="productsResource.value().products"></product-table>
+}

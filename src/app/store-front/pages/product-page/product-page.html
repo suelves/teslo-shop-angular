@@ -1,0 +1,18 @@
+@if (productResource.isLoading()) {
+    <div class="flex justify-content items-center h-screen">
+        <span class="loading loading-spinner loading-lg"></span>
+    </div>
+}
+
+
+@if (productResource.hasValue()) {
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <product-carousel
+            [products]="[productResource.value()]"></product-carousel>
+    </div>
+
+    
+    <h1>{{ productResource.value()?.title }}</h1>
+    <p>{{ productResource.value()?.description }}</p>
+}
